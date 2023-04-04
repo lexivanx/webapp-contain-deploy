@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywebapp01
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mywebapp01
+  template:
+    metadata:
+      labels:
+        app: mywebapp01
+    spec:
+      containers:
+      - name: mywebapp01
+        image: registry/image-name:tag
+        ports:
+        - containerPort: 8080
